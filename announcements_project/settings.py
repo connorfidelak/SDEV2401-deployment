@@ -146,17 +146,17 @@ LOGIN_URL = '/accounts/login/' #
 # static files configuration
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # production level static files
-if not DEBUG:
-    STATIC_ROOT = BASE_DIR / "staticfiles"
-    STORAGES = {
+STORAGES = {
         "default": {
             "BACKEND": "django.core.files.storage.FileSystemStorage",
         },
         "staticfiles": {
             "BACKEND": ("whitenoise.storage.CompressedStaticFilesStorage"),
         },
-    }
+}
 
 # Media files
 MEDIA_URL = '/media/'
